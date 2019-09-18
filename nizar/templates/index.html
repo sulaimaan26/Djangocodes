@@ -1,0 +1,188 @@
+{% load static %}
+{%static "images" as baseUrl%}
+{% block content%}
+{% include 'header.html' with header=header classact=classact%}
+	<!-- Home -->
+	<div class="home">
+		<div class="home_background" style="background-image:url('{{banner.Banner_Image.url}}')"></div>
+		<div class="home_content">
+			<div class="home_content_inner">
+				<div class="home_text_large">{{banner.Banner_Heading}}</div>
+				<div class="home_text_small">{{banner.Banner_Text}}</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Find Form -->
+
+	
+	<!-- Top Destinations -->
+
+	<div class="top">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h2>{{destinationtitle.Destination_Title}}</h2>
+						<div>{{destinationtitle.Destination_Message}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="row top_content">
+				{%for dest in destination %}
+
+				<div class="col-lg-3 col-md-6 top_col">
+
+					<!-- Top Destination Item -->
+					<div class="top_item">
+						<a href="#">
+							<div class="top_item_image"><img src="{{dest.Destination_Image.url}}" alt="https://unsplash.com/@sgabriel"></div>
+							<div class="top_item_content">
+								<div class="top_item_price">From ${{dest.Destination_Price}}</div>
+								<div class="top_item_text">{{dest.Destination_Placename}}</div>
+							</div>
+						</a>
+					</div>
+				</div>
+				{% endfor %}	
+
+				
+				
+			</div>
+		</div>
+	</div>
+
+	<!-- Last -->
+
+	<div class="last">
+		<!-- Image by https://unsplash.com/@thanni -->
+		<div class="last_background parallax-window" data-parallax="scroll" data-image-src="{{offer.Background_Image.url}}" data-speed="0.8"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="last_logo"><img src="{% static 'images/last_logo.png' %}" alt=""></div>
+				<div class="col-lg-6 last_col">
+					<div class="last_item">
+						<div class="last_item_content">
+							<div class="last_subtitle">{{offer.First_Offer_Place}}</div>
+							<div class="last_percent">{{offer.First_Offer_Percentage}}</div>
+							<div class="last_title">{{offer.First_Offer_Subject}}</div>
+							<div class="last_text">{{offer.First_Offer_Description}}</div>
+							<div class="button last_button"><a href="{{offers.First_Button_Link}}">See Offer</a></div>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 last_col">
+					<div class="last_item">
+						<div class="last_item_content">
+							<div class="last_subtitle">{{offer.Second_Offer_Place}}</div>
+							<div class="last_percent">{{offer.Second_Offer_Percentage}}</div>
+							<div class="last_title">{{offer.Second_Offer_Subject}}</div>
+							<div class="last_text">{{offer.Second_Offer_Description}}</div>
+							<div class="button last_button"><a href="{{offers.Second_Button_Link}}">See Offer</a></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Video -->
+
+	<div class="video_section d-flex flex-column align-items-center justify-content-center">
+		<!-- Image by https://unsplash.com/@peecho -->
+		<div class="video_background parallax-window" data-parallax="scroll" data-image-src="{{video.Background_Image.url}}" data-speed="0.8"></div>
+		<div class="video_content">
+			<div class="video_title">{{video.Title}}</div>
+			<div class="video_subtitle">{{video.Description}}</div>
+			<div class="video_play">
+				<a  class="video" href="{{video.Video_URL}}">
+					<svg version="1.1" id="Layer_1" class="play_button" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+						 width="140px" height="140px" viewBox="0 0 140 140" enable-background="new 0 0 140 140" xml:space="preserve">
+						<g id="Layer_2">
+							<circle class="play_circle" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" cx="70.333" cy="69.58" r="68.542"/>
+							<polygon class="play_triangle" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" points="61.583,56 61.583,84.417 84.75,70 	"/>
+						</g>
+					</svg>
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Popular -->
+
+	<div class="popular">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h2>{{poptit.Title}}</h2>
+						<div>{{poptit.Description}}</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="popular_content d-flex flex-md-row flex-column flex-wrap align-items-md-center align-items-start justify-content-md-between justify-content-start">
+						
+						<!-- Popular Item -->
+						{% for dests in popdestination %}
+						<div class="popular_item">
+							<a href="{{dests.Pageurl}}">
+								<img src="{{dests.Destination_Image.url}}" alt="image by Egzon Bytyqi">
+								<div class="popular_item_content">
+									<div class="popular_item_price">From ${{dests.Destination_Price}}</div>
+									<div class="popular_item_title">{{dests.Destination_Placename}}</div>
+								</div>
+							</a>	
+						</div>
+						{% endfor %}
+
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Special -->
+
+	<div class="special">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<div class="section_title text-center">
+						<h2>{{specoffertop.Title}}</h2>
+						<div>{{specoffertop.Description}}</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="special_content">
+			<div class="special_slider_container">
+				<div class="owl-carousel owl-theme special_slider">
+					{% for items in specoffer%}
+					<!-- Special Offers Item -->
+					<div class="owl-item">
+						<div class="special_item">
+							<div class="special_item_background"><img src="{{items.Destination_Image.url}}" alt="https://unsplash.com/@garciasaldana_"></div>
+							<div class="special_item_content text-center">
+								<div class="special_category">{{items.Destination_Subject}}</div>
+								<div class="special_title"><a href="offers.html">{{items.Destination_Placename}}</a></div>
+							</div>
+						</div>
+					</div>
+					{%endfor%}
+					
+				</div>
+
+				<div class="special_slider_nav d-flex flex-column align-items-center justify-content-center">
+					<img src="{% static 'images/special_slider.png' %}" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+{% include 'footer.html' %}	
+{% endblock %}
